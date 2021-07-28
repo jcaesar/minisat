@@ -1,0 +1,8 @@
+[wrap-git]
+directory = minisat-2.2.0-core-wasi
+url = https://github.com/jcaesar/minisat
+revision = 12e276b899ba59c3eafa403b9963a604a43a143d
+#patch_directory = minisat
+
+[provide]
+minisat = minisat_dep
