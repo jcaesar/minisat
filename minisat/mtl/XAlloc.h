@@ -23,8 +23,19 @@ OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWA
 
 #include <errno.h>
 #include <stdlib.h>
+#include <iostream>
 
 namespace Minisat {
+
+[[ noreturn ]]
+static void oom() {
+    # if __cpp_exceptions && defined(OutOfMemoryException)
+    throw OutOfMemoryException();
+    # else
+    std::cerr << "Allocation failure" << std::endl;
+    std::abort();
+    # endif
+}
 
 //=================================================================================================
 // Simple layer on top of malloc/realloc to catch out-of-memory situtaions and provide some typing:
@@ -34,7 +45,7 @@ static inline void* xrealloc(void *ptr, size_t size)
 {
     void* mem = realloc(ptr, size);
     if (mem == NULL && errno == ENOMEM){
-        throw OutOfMemoryException();
+        oom();
     }else
         return mem;
 }
