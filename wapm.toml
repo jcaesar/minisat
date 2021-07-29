@@ -1,0 +1,20 @@
+[package]
+name = "liftm/minisat"
+version = "2.2.0-1"
+description = "A minimalistic and high-performance SAT solver"
+license = "MIT"
+repository = "https://github.com/jcaesar/minisat"
+homepage = "http://minisat.se/MiniSat.html"
+readme = "README.md"
+
+[[module]]
+name = "minisat"
+source = "minisat.wasm"
+abi = "wasi"
+
+[module.interfaces]
+wasi = "0.1.0-unstable"
+
+[[command]]
+name = "minisat"
+module = "minisat"

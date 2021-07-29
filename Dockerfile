@@ -1,4 +1,4 @@
-FROM ubuntu:21.04
+FROM docker.io/library/ubuntu:21.04
 RUN apt-get update && \
 	export DEBIAN_FRONTEND=noninteractive && \
 	apt-get install -yq \
