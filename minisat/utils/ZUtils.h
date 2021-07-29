@@ -1,5 +1,5 @@
 #include <zlib.h>
-#include <ParseUtils.h>
+#include "minisat/utils/ParseUtils.h"
 
 namespace Minisat {
 
@@ -40,3 +40,4 @@ public:
 
 static inline bool isEof(StreamBuffer& in) { return *in == EOF;  }
 
+}

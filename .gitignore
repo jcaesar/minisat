@@ -1,2 +1,6 @@
 config.mk
 build
+subprojects/*
+subprojects/*.wrap
+subprojects/packagefiles
+*.wasm

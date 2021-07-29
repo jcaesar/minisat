@@ -1,0 +1,8 @@
+build
+Dockerfile
+subprojects/*
+!subprojects/packagefiles
+!subprojects/*.wrap
+build-docker.sh
+.dockerignore
+*.wasm
